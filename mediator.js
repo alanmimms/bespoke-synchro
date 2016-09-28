@@ -3,7 +3,7 @@ var url = require('url');
 module.exports = function (options) {
   function local(origin, ws) {
     var hostname = url.parse(origin).hostname;
-    var isLocal = hostname === 'localhost' || hostname === '127.0.0.1';
+    var isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '0.0.0.0';
     if (!local.primary) { 
       local.primary = ws; 
       local.primary.on('close', function () { 
